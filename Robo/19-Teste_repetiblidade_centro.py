@@ -3,7 +3,7 @@ import time
 
 # Setup
 # Configurações da porta serial
-port = 'COM9'  # Substitua pela porta correta
+port = 'COM4'  # Substitua pela porta correta
 baudrate = 115200  # Taxa de baud padrão para GRBL
 
 # Inicializa a conexão serial
@@ -32,10 +32,11 @@ send_gcode("G21 G91")
 time.sleep(2)
 
 #ACTION
-perform_touch(0, 0, 4)
-time.sleep(1.25)
-perform_touch(0, 0, 4)
-time.sleep(5)
+number_of_touch_executions = 3
+for touch in range(number_of_touch_executions):
+    perform_touch(0, 0, 8)
+    time.sleep(3)
+
 
 #POSTCONDITION
 # Mover de volta pro zero
